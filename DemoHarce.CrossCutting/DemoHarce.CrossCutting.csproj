@@ -1,0 +1,215 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9F9DBA14-86B8-4BE4-8E54-F0614F18DFF2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DemoHarce.CrossCutting</RootNamespace>
+    <AssemblyName>DemoHarce.CrossCutting</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <CodeAnalysisRuleSet>SecurityRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=3.3.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Autofac.3.3.1\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Extras.DynamicProxy2, Version=3.0.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Autofac.Extras.DynamicProxy2.3.0.7\lib\net40\Autofac.Extras.DynamicProxy2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Castle.Core, Version=3.2.0.0, Culture=neutral, PublicKeyToken=407dd0808d44fbdc, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Castle.Core.3.2.2\lib\net45\Castle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.76.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\ClosedXML.0.76.0\lib\net40-client\ClosedXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp, Version=5.5.9.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\iTextSharp.5.5.9\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\packages\Newtonsoft.Json.9.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Pms.Core.Mail, Version=2.1.0.0, Culture=neutral, PublicKeyToken=9357577d73f007c2, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Pms.Core.Mail.2.1.0\lib\Pms.Core.Mail.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Pms.Core.Exceptions.Serialization, Version=1.0.2.0, Culture=neutral, PublicKeyToken=006f406ceeadda18, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\Pms.Core.Exceptions.Serialization.1.0.2\lib\Pms.Core.Exceptions.Serialization.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IdentityModel" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Authentication\ClaimManagementFactory.cs" />
+    <Compile Include="Authentication\ClaimManagement.cs" />
+    <Compile Include="Authentication\IClaimManagement.cs" />
+    <Compile Include="Authentication\NoneClaimManagement.cs" />
+    <Compile Include="Crypto\AESCryptoManager.cs" />
+    <Compile Include="Excel\ExcelColumn.cs" />
+    <Compile Include="Excel\ExcelCoordinates.cs" />
+    <Compile Include="Excel\ExcelDataRegion.cs" />
+    <Compile Include="Excel\ExcelSheet.cs" />
+    <Compile Include="Excel\ExcelWriter.cs" />
+    <Compile Include="Excel\Format\DataTypes\ExcelBooleanFormat.cs" />
+    <Compile Include="Excel\Format\DataTypes\ExcelDateTimeFormat.cs" />
+    <Compile Include="Excel\Format\DataTypes\ExcelNumericFormat.cs" />
+    <Compile Include="Excel\Format\DataTypes\ExcelTextFormat.cs" />
+    <Compile Include="Excel\Format\DataTypes\ExcelTypesFormat.cs" />
+    <Compile Include="Excel\Format\ExcelConfigurationDataFormat.cs" />
+    <Compile Include="Excel\Format\ExcelDataFormat.cs" />
+    <Compile Include="Excel\Format\Factory\ExcelDataFormatFactory.cs" />
+    <Compile Include="Excel\Style\ExcelConfigurationStyle.cs" />
+    <Compile Include="Excel\Style\ExcelHeader.cs" />
+    <Compile Include="Excel\Style\ExcelStyle.cs" />
+    <Compile Include="Excel\Style\Factory\ExcelStyleFactory.cs" />
+    <Compile Include="Exceptions\BusinessException.cs" />
+    <Compile Include="Exceptions\ExceptionsManager.cs" />
+    <Compile Include="Exceptions\IExceptionsManager.cs" />
+    <Compile Include="Extensions\CustomClaimTypes.cs" />
+    <Compile Include="Extensions\Decimal.cs" />
+    <Compile Include="Extensions\Enum.cs" />
+    <Compile Include="Extensions\Exception.cs" />
+    <Compile Include="Extensions\IEnumerable.cs" />
+    <Compile Include="Extensions\OrderedQueryableExtension.cs" />
+    <Compile Include="Extensions\QueryableExtension.cs" />
+    <Compile Include="Extensions\String.cs" />
+    <Compile Include="Extensions\StringBuilder.cs" />
+    <Compile Include="Helpers\ParamExpression.cs" />
+    <Compile Include="Helpers\ResourceHelper.cs" />
+    <Compile Include="Helpers\PropertyPathVisitor.cs" />
+    <Compile Include="Helpers\Throw.cs" />
+    <Compile Include="Helpers\Validators.cs" />
+    <Compile Include="Helpers\WhenBase.cs" />
+    <Compile Include="Helpers\WhenEnum.cs" />
+    <Compile Include="Helpers\WhenEnumerable.cs" />
+    <Compile Include="Helpers\WhenNumber.cs" />
+    <Compile Include="Helpers\WhenObject.cs" />
+    <Compile Include="Helpers\WhenString.cs" />
+    <Compile Include="Mail\NoneMailService.cs" />
+    <Compile Include="Mail\IMailService.cs" />
+    <Compile Include="Mail\MailFactory.cs" />
+    <Compile Include="Mail\MailService.cs" />
+    <Compile Include="Pdf\Answers\Context.cs" />
+    <Compile Include="Pdf\Answers\DataTypes\DateTimeType.cs" />
+    <Compile Include="Pdf\Answers\DataTypes\DecimalType.cs" />
+    <Compile Include="Pdf\Answers\DataTypes\IntegerType.cs" />
+    <Compile Include="Pdf\Answers\DataTypes\ListType.cs" />
+    <Compile Include="Pdf\Answers\DataTypes\MatrixType.cs" />
+    <Compile Include="Pdf\Answers\DataTypes\StringType.cs" />
+    <Compile Include="Pdf\Answers\IDataTypes\IDataType.cs" />
+    <Compile Include="Pdf\Common\CustomFont.cs" />
+    <Compile Include="Pdf\Common\CustomImage.cs" />
+    <Compile Include="Pdf\Common\EncryptPdf.cs" />
+    <Compile Include="Pdf\Common\Line.cs" />
+    <Compile Include="Pdf\Common\MethodExtensor.cs" />
+    <Compile Include="Pdf\Events\ChapterBorder.cs" />
+    <Compile Include="Pdf\Events\Cover.cs" />
+    <Compile Include="Pdf\Events\Footer.cs" />
+    <Compile Include="Pdf\Events\Header.cs" />
+    <Compile Include="Pdf\Events\WaterMark.cs" />
+    <Compile Include="Pdf\InfoPdf.cs" />
+    <Compile Include="Pdf\PdfReplace.cs" />
+    <Compile Include="Pdf\PdfCreate.cs" />
+    <Compile Include="Enums\Roles.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Resources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Validations\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Pdf\Content\Fonts\Verdana.ttf" />
+    <None Include="Resources\Settings.settings">
+      <Generator>PublicSettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Pdf\Content\Images\Deloitte.png" />
+    <Content Include="Resources\imgAppHome.png" />
+    <None Include="Resources\logoDeloitte.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DemoHarce.Application.Core\DemoHarce.Application.Core.csproj">
+      <Project>{C68C5DDF-28E6-4194-9C64-DA2D0DB2411C}</Project>
+      <Name>DemoHarce.Application.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Pms.CoreServices\Pms.CoreServices.csproj">
+      <Project>{d5dbe5c9-0c0f-407e-86fe-55e7b8a6baca}</Project>
+      <Name>Pms.CoreServices</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
